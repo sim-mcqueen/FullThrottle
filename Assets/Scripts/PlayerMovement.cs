@@ -9,7 +9,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float turnSpeed = 0;
+    public float turnSpeed = 6;
     private float speed = 0;
     private Rigidbody2D rb;
 
@@ -24,12 +24,14 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.A))
         {
-            speed -= turnSpeed;
+            rb.velocity = new Vector2(-turnSpeed, 0);
+            //speed -= turnSpeed;
         }
         else if(Input.GetKey(KeyCode.D))
         {
-            speed += turnSpeed;
+            rb.velocity = new Vector2(turnSpeed, 0);
+            //speed += turnSpeed;
         }
-        rb.velocity = new Vector2(speed, 0f);
+        //rb.velocity = new Vector2(speed, 0f);
     }
 }

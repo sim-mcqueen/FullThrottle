@@ -20,13 +20,13 @@ public class PlayerMovement : MonoBehaviour
 
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
         {
-            speed += turnSpeed;
+            speed -= turnSpeed;
         }
-        else if(Input.GetKeyDown(KeyCode.D))
+        else if(Input.GetKey(KeyCode.D))
         {
             speed += turnSpeed;
         }

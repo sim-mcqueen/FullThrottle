@@ -17,7 +17,7 @@ public class BackgroundMovement : MonoBehaviour
     void Start()
     {
         bgRB = GetComponent<Rigidbody2D>();
-        bgRB.velocity = new Vector2(0, speed);
+        bgRB.velocity = new Vector2(0, -speed);
     }
 
     private void OnBecameInvisible()

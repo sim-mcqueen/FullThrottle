@@ -30,7 +30,7 @@ public class Gas : MonoBehaviour
 
     IEnumerator DecreaseGas(float wait)
     {
-        current -= 0.1f;
+        current -= 0.01f;
         yield return new WaitForSecondsRealtime(wait);
         StartCoroutine(DecreaseGas(wait));
     }

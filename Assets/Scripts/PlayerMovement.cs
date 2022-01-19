@@ -9,15 +9,27 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public float turnSpeed = 0;
+    private float speed = 0;
+    private Rigidbody2D rb;
+
+    private void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
     }
+
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            speed += turnSpeed;
+        }
+        else if(Input.GetKeyDown(KeyCode.D))
+        {
+            speed += turnSpeed;
+        }
+        rb.velocity = new Vector2(speed, 0f);
     }
 }

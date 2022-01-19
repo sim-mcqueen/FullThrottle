@@ -4,23 +4,19 @@ using UnityEngine;
 
 public class BackgroundMovement : MonoBehaviour
 {
-    public int yConstraint = 10;
+    public float yConstraint = 10.4f;
     private Rigidbody2D bgRB;
     private Vector2 speed = new Vector2(0, -5);
+    private Vector2 startPos = new Vector2(0, 10.4f);
 
-    // Start is called before the first frame update
     void Start()
     {
         bgRB = GetComponent<Rigidbody2D>();
         bgRB.velocity = speed;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnBecameInvisible()
     {
-        if(transform.position.y < -yConstraint)
-        {
-            transform.position = new Vector2(0, yConstraint);
-        }
+        transform.position = startPos;
     }
 }

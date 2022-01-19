@@ -12,7 +12,7 @@ public class BackgroundMovement : MonoBehaviour
     public float yConstraint = 10.4f;
     private Rigidbody2D bgRB;
     public float speed = 5f;
-    private Vector2 startPos = new Vector2(0, 10.4f);
+    private Vector3 startPos = new Vector3(0, 10.4f, 5f);
 
     void Start()
     {

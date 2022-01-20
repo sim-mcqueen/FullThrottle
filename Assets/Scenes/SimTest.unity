@@ -281,6 +281,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7945395088697549999, guid: c328ff951855f914a99bc4f52eb0b6bc,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c328ff951855f914a99bc4f52eb0b6bc, type: 3}
 --- !u!1 &697162761
@@ -312,7 +317,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e5e62cf63e72e941a320f40bf3177e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
   speedIncrease: 10
   startingSpeed: 3
   middleSpeed: 1
@@ -460,6 +464,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7945395088697549999, guid: c328ff951855f914a99bc4f52eb0b6bc,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c328ff951855f914a99bc4f52eb0b6bc, type: 3}
 --- !u!1 &1473535449
@@ -499,7 +508,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'MPH: 000'
+  m_text: 'KMPH: 000'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -939,7 +948,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bac15b49a6728949aca8328957853f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnSpeed: 3
+  turnSpeed: 10
 --- !u!50 &2023401426
 Rigidbody2D:
   serializedVersion: 4

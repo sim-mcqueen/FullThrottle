@@ -26,30 +26,30 @@ public class SpeedManager : MonoBehaviour
         if(speed < 10)
         {
             speed += (speedIncrease * Time.deltaTime);
-            text.text = "MPH: " + (int)speed;
+            text.text = "KMPH: " + (int)speed;
             speedIncrease = startingSpeed;
         }
         if(speed < 30)
         {
             speed += (speedIncrease * Time.deltaTime);
-            text.text = "MPH: " + (int)speed;
+            text.text = "KMPH: " + (int)speed;
             speedIncrease = (startingSpeed + middleSpeed) / 2;
         }
         if(speed < 60)
         {
             speed += (speedIncrease * Time.deltaTime);
-            text.text = "MPH: " + (int)speed;
+            text.text = "KMPH: " + (int)speed;
             speedIncrease = middleSpeed;
         }
         else if(speed < maxSpeed)
         {
             speed += (speedIncrease * Time.deltaTime);
-            text.text = "MPH: " + (int)speed;
+            text.text = "KMPH: " + (int)speed;
         }
         else
         {
             speed = maxSpeed;
-            text.text = "MPH: " + maxSpeed;
+            text.text = "KMPH: " + maxSpeed;
         }
     }
 
@@ -57,5 +57,10 @@ public class SpeedManager : MonoBehaviour
     public float GetSpeed()
     {
         return speed;
+    }
+
+    public float GetSpeedPercentage()
+    {
+        return speed / maxSpeed;
     }
 }

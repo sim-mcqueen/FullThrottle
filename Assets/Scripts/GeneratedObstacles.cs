@@ -24,6 +24,7 @@ public class GeneratedObstacles : MonoBehaviour
         float maxRange = Random.Range(-7, 7);
  
         yield return new WaitForSeconds(2);
+        //change to spawn out of range
         Instantiate(obstacle, new Vector3(maxRange, 4, 0), Quaternion.identity);
         
         StartCoroutine(GenerateObstacle());

@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿//////////////////////////////
+//// Name: Andrew Dahlman-Oeth
+//// Date: 1/19/22
+//// Desc: Decreases amount of gas as time passes
+//////////////////////////////
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;

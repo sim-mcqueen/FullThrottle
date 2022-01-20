@@ -13,10 +13,20 @@ public class BackgroundMovement : MonoBehaviour
     private Rigidbody2D bgRB;
     public float speed = 5f;
     private Vector3 startPos = new Vector3(0, 10.4f, 5f);
+    private SpeedManager SM;
 
     void Start()
     {
+        SM = FindObjectOfType<SpeedManager>();
+        speed = SM.GetSpeed() / 5;
         bgRB = GetComponent<Rigidbody2D>();
+        bgRB.velocity = new Vector2(0, -speed);
+    }
+
+
+    private void Update()
+    {
+        speed = SM.GetSpeed() / 5;
         bgRB.velocity = new Vector2(0, -speed);
     }
 

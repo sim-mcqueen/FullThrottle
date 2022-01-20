@@ -12,10 +12,14 @@ public class PlayerMovement : MonoBehaviour
     public float turnSpeed = 6;
     private float speed = 0;
     private Rigidbody2D rb;
+    private SpeedManager SM; 
+    private float OrginalTurnSpeed;
 
     private void Start()
     {
+        OrginalTurnSpeed = turnSpeed;
         rb = GetComponent<Rigidbody2D>();
+        SM = FindObjectOfType<SpeedManager>();
     }
 
 
@@ -33,5 +37,7 @@ public class PlayerMovement : MonoBehaviour
             //speed += turnSpeed;
         }
         //rb.velocity = new Vector2(speed, 0f);
+        Debug.Log(SM.GetSpeedPercentage());
+        turnSpeed = OrginalTurnSpeed * SM.GetSpeedPercentage();
     }
 }

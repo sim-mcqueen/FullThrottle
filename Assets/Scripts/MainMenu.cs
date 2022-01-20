@@ -13,10 +13,10 @@ public class MainMenu : MonoBehaviour
 {
     public GameObject mainMenu;
     public GameObject optionsMenu;
+    public string PlayScene;
     public void Play()
     {
-        // Sim help pls
-        // SceneManager.LoadScene();
+        SceneManager.LoadScene(PlayScene);
     }
 
     public void Options()

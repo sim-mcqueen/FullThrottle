@@ -12,20 +12,19 @@ public class ScoreScript : MonoBehaviour
 {
     public float score;
     public float pointsPerSecond;
-    private BackgroundMovement background;
+    private SpeedManager SM;
     // Start is called before the first frame update
     void Start()
     {
         score = 0;
         pointsPerSecond = 10;
-        background = FindObjectOfType<BackgroundMovement>();
+        SM = FindObjectOfType<SpeedManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        pointsPerSecond = 2 * background.speed;
-        Debug.Log(pointsPerSecond);
+        pointsPerSecond = 2 * (SM.GetSpeed() / 3.6f);
         score += (pointsPerSecond * Time.deltaTime);
         GetComponent<TextMeshProUGUI>().text = "METERS: " + (int)score;
     }

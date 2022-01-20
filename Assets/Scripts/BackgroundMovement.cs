@@ -12,7 +12,7 @@ public class BackgroundMovement : MonoBehaviour
     public float yConstraint = 10.4f;
     private Rigidbody2D bgRB;
     public float speed = 5f;
-    private Vector3 startPos = new Vector3(0, 10.4f, 5f);
+    private Vector3 startPos = new Vector3(0, 10f, 5f);
     private SpeedManager SM;
 
     void Start()
@@ -28,10 +28,14 @@ public class BackgroundMovement : MonoBehaviour
     {
         speed = SM.GetSpeed() / 5;
         bgRB.velocity = new Vector2(0, -speed);
+        if (transform.position.y < -10)
+        {
+            transform.position = startPos;
+        }
     }
 
-    private void OnBecameInvisible()
+/*    private void OnBecameInvisible()
     {
         transform.position = startPos;
-    }
+    }*/
 }

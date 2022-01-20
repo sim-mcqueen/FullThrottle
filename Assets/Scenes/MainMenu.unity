@@ -527,6 +527,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainMenu: {fileID: 734686766}
   optionsMenu: {fileID: 832077183}
+  PlayScene: PlayScene
 --- !u!1 &682942333
 GameObject:
   m_ObjectHideFlags: 0

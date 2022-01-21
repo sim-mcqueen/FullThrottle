@@ -11,16 +11,21 @@ public class BackgroundMovement : MonoBehaviour
 {
     public float yConstraint = 10.4f;
     private Rigidbody2D bgRB;
-    public float speed = 5f;
+    public float speed;
+    private float length;
     private Vector3 startPos = new Vector3(0, 10f, 5f);
     private SpeedManager SM;
 
     void Start()
     {
         SM = FindObjectOfType<SpeedManager>();
-        speed = SM.GetSpeed() / 5;
         bgRB = GetComponent<Rigidbody2D>();
+
+        speed = SM.GetSpeed() / 5;
         bgRB.velocity = new Vector2(0, -speed);
+
+        length = GetComponent<SpriteRenderer>().bounds.size.y;
+        Debug.Log(length);
     }
 
 
@@ -28,9 +33,10 @@ public class BackgroundMovement : MonoBehaviour
     {
         speed = SM.GetSpeed() / 5;
         bgRB.velocity = new Vector2(0, -speed);
-        if (transform.position.y < -10)
+        if (transform.position.y < -length)
         {
-            transform.position = startPos;
+            Vector3 offset = new Vector3(0, length * 2f, 0);
+            transform.position = transform.position + offset;
         }
     }
 

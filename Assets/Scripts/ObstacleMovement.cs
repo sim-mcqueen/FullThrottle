@@ -20,7 +20,11 @@ public class ObstacleMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        speed = speedManager.GetSpeed() / 5;
-        obstacleRB.velocity = new Vector2(0, -speed);
+        //speed = speedManager.GetSpeed() / 5;
+        //obstacleRB.velocity = new Vector2(0, -speed);
+    }
+    public void ChangeSpeed(float newSpeed)
+    {
+        obstacleRB.velocity = new Vector2(0, -newSpeed);
     }
 }

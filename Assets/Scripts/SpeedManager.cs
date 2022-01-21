@@ -14,6 +14,8 @@ public class SpeedManager : MonoBehaviour
     public float grassBoundNeg;
     public GameObject player;
     public GameObject textGameObject;
+    private BackgroundMovement[] bg;
+    private ObstacleMovement[] obstacles;
     private float speed;
     private TextMeshProUGUI text;
     private bool onGrass;
@@ -21,6 +23,8 @@ public class SpeedManager : MonoBehaviour
     void Start()
     {
         text = textGameObject.GetComponent<TextMeshProUGUI>();
+        bg = FindObjectsOfType<BackgroundMovement>();
+        obstacles = FindObjectsOfType<ObstacleMovement>();
         speedIncrease /= 100;
     }
 
@@ -32,10 +36,27 @@ public class SpeedManager : MonoBehaviour
             if(onGrass)
             {
                 speed += (speedIncrease * Time.deltaTime) / 2;
+                for(int i = 0; i < obstacles.Length; i++)
+                {
+                    obstacles[i].ChangeSpeed(speed);
+                }
+                for(int i = 0; i < 2; i++)
+                {
+                    bg[i].ChangeSpeed(speed);
+                }
+                
             }
             else
             {
                 speed += (speedIncrease * Time.deltaTime);
+                for (int i = 0; i < 2; i++)
+                {
+                    bg[i].ChangeSpeed(speed);
+                }
+                for (int i = 0; i < obstacles.Length; i++)
+                {
+                    obstacles[i].ChangeSpeed(speed);
+                }
             }
             text.text = "KMPH: " + (int)speed;
             speedIncrease = startingSpeed;
@@ -45,10 +66,26 @@ public class SpeedManager : MonoBehaviour
             if (onGrass)
             {
                 speed += (speedIncrease * Time.deltaTime) / 2;
+                for (int i = 0; i < 2; i++)
+                {
+                    bg[i].ChangeSpeed(speed);
+                }
+                for (int i = 0; i < obstacles.Length; i++)
+                {
+                    obstacles[i].ChangeSpeed(speed);
+                }
             }
             else
             {
                 speed += (speedIncrease * Time.deltaTime);
+                for (int i = 0; i < 2; i++)
+                {
+                    bg[i].ChangeSpeed(speed);
+                }
+                for (int i = 0; i < obstacles.Length; i++)
+                {
+                    obstacles[i].ChangeSpeed(speed);
+                }
             }
             text.text = "KMPH: " + (int)speed;
             speedIncrease = (startingSpeed + middleSpeed) / 2;
@@ -59,12 +96,28 @@ public class SpeedManager : MonoBehaviour
             {
                 
                 speed += (speedIncrease * Time.deltaTime) / 2;
-                
+                for (int i = 0; i < 2; i++)
+                {
+                    bg[i].ChangeSpeed(speed);
+                }
+                for (int i = 0; i < obstacles.Length; i++)
+                {
+                    obstacles[i].ChangeSpeed(speed);
+                }
+
             }
             else
             {
                 speed += (speedIncrease * Time.deltaTime);
-                
+                for (int i = 0; i < 2; i++)
+                {
+                    bg[i].ChangeSpeed(speed);
+                }
+                for (int i = 0; i < obstacles.Length; i++)
+                {
+                    obstacles[i].ChangeSpeed(speed);
+                }
+
             }
             text.text = "KMPH: " + (int)speed;
             speedIncrease = middleSpeed;
@@ -75,10 +128,26 @@ public class SpeedManager : MonoBehaviour
             {
                 speed = 60;
                 speed += (speedIncrease * Time.deltaTime) / 2;
+                for (int i = 0; i < 2; i++)
+                {
+                    bg[i].ChangeSpeed(speed);
+                }
+                for (int i = 0; i < obstacles.Length; i++)
+                {
+                    obstacles[i].ChangeSpeed(speed);
+                }
             }
             else
             {
                 speed += (speedIncrease * Time.deltaTime);
+                for (int i = 0; i < 2; i++)
+                {
+                    bg[i].ChangeSpeed(speed);
+                }
+                for (int i = 0; i < obstacles.Length; i++)
+                {
+                    obstacles[i].ChangeSpeed(speed);
+                }
             }
             text.text = "KMPH: " + (int)speed;
         }
@@ -87,10 +156,26 @@ public class SpeedManager : MonoBehaviour
             if (onGrass)
             {
                 speed = maxSpeed;
+                for (int i = 0; i < 2; i++)
+                {
+                    bg[i].ChangeSpeed(speed);
+                }
+                for (int i = 0; i < obstacles.Length; i++)
+                {
+                    obstacles[i].ChangeSpeed(speed);
+                }
             }
             else
             {
                 speed = maxSpeed / 2;
+                for (int i = 0; i < 2; i++)
+                {
+                    bg[i].ChangeSpeed(speed);
+                }
+                for (int i = 0; i < obstacles.Length; i++)
+                {
+                    obstacles[i].ChangeSpeed(speed);
+                }
             }
             
             text.text = "KMPH: " + maxSpeed;

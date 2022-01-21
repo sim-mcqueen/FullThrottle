@@ -30,8 +30,8 @@ public class BackgroundMovement : MonoBehaviour
 
     private void Update()
     {
-        speed = SM.GetSpeed() / 5;
-        bgRB.velocity = new Vector2(0, -speed);
+        //speed = SM.GetSpeed() / 5;
+        //bgRB.velocity = new Vector2(0, -speed);
         if (transform.position.y < -length)
         {
             Vector3 offset = new Vector3(0, length * 2f, 0);
@@ -39,6 +39,10 @@ public class BackgroundMovement : MonoBehaviour
         }
     }
 
+    public void ChangeSpeed(float newSpeed)
+    {
+        bgRB.velocity = new Vector2(0, -newSpeed);
+    }
 /*    private void OnBecameInvisible()
     {
         transform.position = startPos;

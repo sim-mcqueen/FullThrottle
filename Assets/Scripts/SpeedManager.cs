@@ -10,9 +10,13 @@ public class SpeedManager : MonoBehaviour
     public int startingSpeed;
     public int middleSpeed;
     public int maxSpeed;
+    public float grassBoundPos;
+    public float grassBoundNeg;
+    public GameObject player;
     public GameObject textGameObject;
     private float speed;
     private TextMeshProUGUI text;
+    private bool onGrass;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,32 +29,88 @@ public class SpeedManager : MonoBehaviour
     {
         if(speed < 10)
         {
-            speed += (speedIncrease * Time.deltaTime);
+            if(onGrass)
+            {
+                speed += (speedIncrease * Time.deltaTime) / 2;
+            }
+            else
+            {
+                speed += (speedIncrease * Time.deltaTime);
+            }
             text.text = "KMPH: " + (int)speed;
             speedIncrease = startingSpeed;
         }
-        if(speed < 30)
+        else if(speed < 30)
         {
-            speed += (speedIncrease * Time.deltaTime);
+            if (onGrass)
+            {
+                speed += (speedIncrease * Time.deltaTime) / 2;
+            }
+            else
+            {
+                speed += (speedIncrease * Time.deltaTime);
+            }
             text.text = "KMPH: " + (int)speed;
             speedIncrease = (startingSpeed + middleSpeed) / 2;
         }
-        if(speed < 60)
+        else if(speed < 60)
         {
-            speed += (speedIncrease * Time.deltaTime);
+            if (onGrass)
+            {
+                
+                speed += (speedIncrease * Time.deltaTime) / 2;
+                
+            }
+            else
+            {
+                speed += (speedIncrease * Time.deltaTime);
+                
+            }
             text.text = "KMPH: " + (int)speed;
             speedIncrease = middleSpeed;
         }
         else if(speed < maxSpeed)
         {
-            speed += (speedIncrease * Time.deltaTime);
+            if (onGrass)
+            {
+                speed = 60;
+                speed += (speedIncrease * Time.deltaTime) / 2;
+            }
+            else
+            {
+                speed += (speedIncrease * Time.deltaTime);
+            }
             text.text = "KMPH: " + (int)speed;
         }
         else
         {
-            speed = maxSpeed;
+            if (onGrass)
+            {
+                speed = maxSpeed;
+            }
+            else
+            {
+                speed = maxSpeed / 2;
+            }
+            
             text.text = "KMPH: " + maxSpeed;
         }
+        if(player.transform.position.x < grassBoundNeg)
+        {
+            onGrass = true;
+            Debug.Log("on grass");
+        }
+        else if(player.transform.position.x > grassBoundPos)
+        {
+            onGrass = true;
+            Debug.Log("on grass");
+        }
+        else
+        {
+            onGrass = false;
+            Debug.Log("off grass");
+        }
+
     }
 
 

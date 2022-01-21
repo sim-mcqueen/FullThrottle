@@ -45,7 +45,6 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity = new Vector2(turnSpeed, 0);
         }
-        Debug.Log(SM.GetSpeedPercentage());
         turnSpeed = OrginalTurnSpeed * SM.GetSpeedPercentage();
     }
 }

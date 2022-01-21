@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿//////////////////////////////
+//// Name: Melanie Baloban
+//// Date: 1/20/22
+//// Desc: Obstacles generate and move down the screen
+//////////////////////////////
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,12 +26,12 @@ public class GeneratedObstacles : MonoBehaviour
 
     IEnumerator GenerateObstacle()
     {
-        float maxRange = Random.Range(-7, 7);
- 
+        float maxRange = Random.Range(-3, 3);
+
         yield return new WaitForSeconds(2);
-        //change to spawn out of range
-        Instantiate(obstacle, new Vector3(maxRange, 4, 0), Quaternion.identity);
-        
+
+        Instantiate(obstacle, new Vector3(maxRange, 9, 0), Quaternion.identity);
+
         StartCoroutine(GenerateObstacle());
     }
 }

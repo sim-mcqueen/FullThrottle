@@ -21,11 +21,10 @@ public class BackgroundMovement : MonoBehaviour
         SM = FindObjectOfType<SpeedManager>();
         bgRB = GetComponent<Rigidbody2D>();
 
-        speed = SM.GetSpeed() / 5;
+        speed = SM.GetSpeed() / 5; 
         bgRB.velocity = new Vector2(0, -speed);
 
         length = GetComponent<SpriteRenderer>().bounds.size.y;
-        Debug.Log(length);
     }
 
 

@@ -25,6 +25,17 @@ public class Gas : MonoBehaviour
 
     }
 
+    public void AddGas(float amount)
+    {
+        if(amount + current > max)
+        {
+            current = max;
+        }
+        else
+        {
+            current += amount;
+        }
+    }
     void GetFill()
     {
         float currOffset = current - min;

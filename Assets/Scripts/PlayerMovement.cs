@@ -24,19 +24,27 @@ public class PlayerMovement : MonoBehaviour
 
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A))
         {
             rb.velocity = new Vector2(-turnSpeed, 0);
             //speed -= turnSpeed;
         }
-        else if(Input.GetKey(KeyCode.D))
+        else if(Input.GetKeyDown(KeyCode.D))
         {
             rb.velocity = new Vector2(turnSpeed, 0);
             //speed += turnSpeed;
         }
         //rb.velocity = new Vector2(speed, 0f);
+        if (transform.position.x > 8.5) 
+        {
+            rb.velocity = new Vector2(-turnSpeed, 0);
+        }
+        else if(transform.position.x < -8.5)
+        {
+            rb.velocity = new Vector2(turnSpeed, 0);
+        }
         Debug.Log(SM.GetSpeedPercentage());
         turnSpeed = OrginalTurnSpeed * SM.GetSpeedPercentage();
     }

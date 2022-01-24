@@ -182,18 +182,27 @@ public class SpeedManager : MonoBehaviour
         }
         if(player.transform.position.x < grassBoundNeg)
         {
+            if(!onGrass)
+            {
+                Debug.Log("on grass");
+            }
             onGrass = true;
-            Debug.Log("on grass");
         }
         else if(player.transform.position.x > grassBoundPos)
         {
+            if (!onGrass)
+            {
+                Debug.Log("on grass");
+            }
             onGrass = true;
-            Debug.Log("on grass");
         }
         else
         {
+            if (onGrass)
+            {
+                Debug.Log("off grass");
+            }
             onGrass = false;
-            Debug.Log("off grass");
         }
 
     }

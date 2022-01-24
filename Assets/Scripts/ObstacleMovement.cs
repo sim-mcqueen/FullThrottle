@@ -6,7 +6,6 @@ public class ObstacleMovement : MonoBehaviour
 {
     private SpeedManager speedManager;
     public float speed;
-    public Rigidbody2D clone;
     private Rigidbody2D obstacleRB;
 
     // Start is called before the first frame update
@@ -22,9 +21,12 @@ public class ObstacleMovement : MonoBehaviour
     {
         //speed = speedManager.GetSpeed() / 5;
         //obstacleRB.velocity = new Vector2(0, -speed);
+
     }
     public void ChangeSpeed(float newSpeed)
     {
         obstacleRB.velocity = new Vector2(0, -newSpeed);
     }
+
+    
 }

@@ -26,6 +26,7 @@ public class GeneratedObstacles : MonoBehaviour
 
     IEnumerator GenerateObstacle()
     {
+        //left and right bounds of road
         float maxRange = Random.Range(-3, 3);
 
         yield return new WaitForSeconds(2);

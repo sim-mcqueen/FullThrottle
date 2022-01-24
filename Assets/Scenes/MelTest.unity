@@ -201,6 +201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnSpeed: 10
+  obstacleCollider: {fileID: 0}
 --- !u!212 &303470146
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -556,6 +557,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1659662789296842239, guid: e442054d77f05b841b3843b8985f2448,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1420625127459748635, guid: e442054d77f05b841b3843b8985f2448,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -656,6 +662,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsTrigger
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8543733148053726000, guid: e442054d77f05b841b3843b8985f2448,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 8543733148053726000, guid: e442054d77f05b841b3843b8985f2448,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.33
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e442054d77f05b841b3843b8985f2448, type: 3}
@@ -965,6 +981,21 @@ PrefabInstance:
       propertyPath: textGameObject
       value: 
       objectReference: {fileID: 580028900}
+    - target: {fileID: 884591577531821204, guid: e377f6300bc47344a994699f6f1caa2a,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 303470141}
+    - target: {fileID: 884591577531821204, guid: e377f6300bc47344a994699f6f1caa2a,
+        type: 3}
+      propertyPath: grassBoundNeg
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 884591577531821204, guid: e377f6300bc47344a994699f6f1caa2a,
+        type: 3}
+      propertyPath: grassBoundPos
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 884591577531821205, guid: e377f6300bc47344a994699f6f1caa2a,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private SpeedManager SM; 
     private float OrginalTurnSpeed;
+    public Collider2D obstacleCollider;
 
     private void Start()
     {
@@ -46,5 +47,12 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(turnSpeed, 0);
         }
         turnSpeed = OrginalTurnSpeed * SM.GetSpeedPercentage();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        print("Trigger Detected " + collision.gameObject.name);
+        Destroy(collision.gameObject);
+
     }
 }

@@ -14,6 +14,7 @@ public class MainMenu : MonoBehaviour
     public GameObject mainMenu;
     public GameObject optionsMenu;
     public string PlayScene;
+    public string MenuScene = "MainMenu";
     public void Play()
     {
         SceneManager.LoadScene(PlayScene);
@@ -32,6 +33,11 @@ public class MainMenu : MonoBehaviour
             optionsMenu.SetActive(false);
         }
 
+    }
+
+    public void LoadMenu()
+    {
+        SceneManager.LoadScene(MenuScene);
     }
 
 

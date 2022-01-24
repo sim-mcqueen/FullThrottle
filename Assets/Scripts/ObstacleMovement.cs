@@ -25,6 +25,7 @@ public class ObstacleMovement : MonoBehaviour
     }
     public void ChangeSpeed(float newSpeed)
     {
+        newSpeed /= 5;
         obstacleRB.velocity = new Vector2(0, -newSpeed);
     }
 

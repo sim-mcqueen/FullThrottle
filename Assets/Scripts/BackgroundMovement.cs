@@ -41,6 +41,7 @@ public class BackgroundMovement : MonoBehaviour
 
     public void ChangeSpeed(float newSpeed)
     {
+        newSpeed /= 5;
         bgRB.velocity = new Vector2(0, -newSpeed);
     }
 /*    private void OnBecameInvisible()

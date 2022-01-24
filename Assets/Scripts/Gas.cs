@@ -7,8 +7,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class Gas : MonoBehaviour
 {
+    public string PlayScene;
     public float max;
     public float min;
     public float current;
@@ -46,6 +48,10 @@ public class Gas : MonoBehaviour
 
     IEnumerator DecreaseGas(float wait)
     {
+        if(current < 0)
+        {
+            SceneManager.LoadScene(PlayScene);
+        }
         current -= 0.1f;
         yield return new WaitForSecondsRealtime(wait);
         StartCoroutine(DecreaseGas(wait));

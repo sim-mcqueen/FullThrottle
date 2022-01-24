@@ -16,7 +16,7 @@ public class Gas : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(DecreaseGas(0.01f));
+        StartCoroutine(DecreaseGas(0.1f));
     }
 
     void Update()
@@ -46,7 +46,7 @@ public class Gas : MonoBehaviour
 
     IEnumerator DecreaseGas(float wait)
     {
-        current -= 0.01f;
+        current -= 0.1f;
         yield return new WaitForSecondsRealtime(wait);
         StartCoroutine(DecreaseGas(wait));
     }

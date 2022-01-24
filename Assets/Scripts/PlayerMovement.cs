@@ -15,12 +15,15 @@ public class PlayerMovement : MonoBehaviour
     private SpeedManager SM; 
     private float OrginalTurnSpeed;
     public Collider2D obstacleCollider;
+    public AudioSource soundEffectPlayer;
+    public AudioClip collisionSound;
 
     private void Start()
     {
         OrginalTurnSpeed = turnSpeed;
         rb = GetComponent<Rigidbody2D>();
         SM = FindObjectOfType<SpeedManager>();
+        soundEffectPlayer = GetComponent<AudioSource>();
     }
 
 
@@ -52,6 +55,8 @@ public class PlayerMovement : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         print("Trigger Detected " + collision.gameObject.name);
+        soundEffectPlayer.clip = collisionSound;
+        soundEffectPlayer.Play();
         Destroy(collision.gameObject);
 
     }

@@ -26,8 +26,6 @@ public class PlayerMovement : MonoBehaviour
         soundEffectPlayer = GetComponent<AudioSource>();
     }
 
-
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.A))
@@ -58,6 +56,5 @@ public class PlayerMovement : MonoBehaviour
         soundEffectPlayer.clip = collisionSound;
         soundEffectPlayer.Play();
         Destroy(collision.gameObject);
-
     }
 }

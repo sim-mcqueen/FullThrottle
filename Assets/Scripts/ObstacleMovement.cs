@@ -13,6 +13,7 @@ public class ObstacleMovement : MonoBehaviour
     {
         obstacleRB = GetComponent<Rigidbody2D>();
         speedManager = FindObjectOfType<SpeedManager>();
+        ChangeSpeed(speedManager.GetSpeed());
 
     }
 

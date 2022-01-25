@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     private SpeedManager SM;
     private float OrginalTurnSpeed;
     public Collider2D obstacleCollider;
+    private Gas GasS;
 
     public AudioSource soundEffectPlayer;
     public AudioClip collisionSound;
@@ -27,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         SM = FindObjectOfType<SpeedManager>();
         soundEffectPlayer = GetComponent<AudioSource>();
+        GasS = FindObjectOfType<Gas>();
 
         //StartCoroutine(WaitBeforeDriving());
 
@@ -59,8 +61,15 @@ public class PlayerMovement : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         print("Trigger Detected " + collision.gameObject.name);
-        soundEffectPlayer.clip = collisionSound;
-        soundEffectPlayer.Play();
+        if (collision.CompareTag("Gas"))
+        {
+            GasS.AddGas(100);
+        }
+        else
+        {
+            soundEffectPlayer.clip = collisionSound;
+            soundEffectPlayer.Play();
+        }
         Destroy(collision.gameObject);
     }
 

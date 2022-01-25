@@ -28,7 +28,7 @@ public class JerryCanSpawner : MonoBehaviour
             }
             else
             {
-                SpawnNextAt = (int)((SS.score * 0.46f) + SS.score); 
+                SpawnNextAt = (int)((SS.score * 0.52f + 140) + SS.score); 
             }
         }
     }

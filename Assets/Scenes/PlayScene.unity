@@ -6207,12 +6207,12 @@ PrefabInstance:
     - target: {fileID: 5817592503192082976, guid: 0deba412e09f03a4eb450eaf9356f312,
         type: 3}
       propertyPath: max
-      value: 20
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5817592503192082976, guid: 0deba412e09f03a4eb450eaf9356f312,
         type: 3}
       propertyPath: current
-      value: 20
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5817592503192082976, guid: 0deba412e09f03a4eb450eaf9356f312,
         type: 3}

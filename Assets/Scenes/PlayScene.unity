@@ -614,7 +614,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &499345592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -997,7 +997,7 @@ MonoBehaviour:
   obstacleCollider: {fileID: 0}
   soundEffectPlayer: {fileID: 1124398321}
   collisionSound: {fileID: 8300000, guid: cd3f309d939d8f44cbe57fefe4a52a93, type: 3}
-  pickUpSound: {fileID: 0}
+  pickUpSound: {fileID: 8300000, guid: 80579d23d92d6cc4db8464abc5668096, type: 3}
 --- !u!212 &1124398319
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -71,4 +71,10 @@ public class PlayerSpeed : MonoBehaviour
     {
         return speed / maxSpeed;
     }
+
+    public void ReduceSpeed()
+    {
+        Debug.Log("ReduceSpeed called");
+        speed *= 0.3f;
+    }
 }

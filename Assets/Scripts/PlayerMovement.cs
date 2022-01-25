@@ -12,11 +12,14 @@ public class PlayerMovement : MonoBehaviour
     public float turnSpeed = 6;
     private float speed = 0;
     private Rigidbody2D rb;
-    private SpeedManager SM; 
+    private SpeedManager SM;
     private float OrginalTurnSpeed;
     public Collider2D obstacleCollider;
+
     public AudioSource soundEffectPlayer;
     public AudioClip collisionSound;
+    //public AudioClip ignitionSound;
+    //public AudioClip doorSlamSound;
 
     private void Start()
     {
@@ -24,6 +27,9 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         SM = FindObjectOfType<SpeedManager>();
         soundEffectPlayer = GetComponent<AudioSource>();
+
+        //StartCoroutine(WaitBeforeDriving());
+
     }
 
     void Update()
@@ -33,17 +39,17 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(-turnSpeed, 0);
             //speed -= turnSpeed;
         }
-        else if(Input.GetKeyDown(KeyCode.D))
+        else if (Input.GetKeyDown(KeyCode.D))
         {
             rb.velocity = new Vector2(turnSpeed, 0);
             //speed += turnSpeed;
         }
         //rb.velocity = new Vector2(speed, 0f);
-        if (transform.position.x > 8.5) 
+        if (transform.position.x > 8.5)
         {
             rb.velocity = new Vector2(-turnSpeed, 0);
         }
-        else if(transform.position.x < -8.5)
+        else if (transform.position.x < -8.5)
         {
             rb.velocity = new Vector2(turnSpeed, 0);
         }
@@ -57,4 +63,7 @@ public class PlayerMovement : MonoBehaviour
         soundEffectPlayer.Play();
         Destroy(collision.gameObject);
     }
+
+    
+
 }

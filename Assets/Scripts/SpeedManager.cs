@@ -19,12 +19,19 @@ public class SpeedManager : MonoBehaviour
     private float speed;
     private TextMeshProUGUI text;
     private bool onGrass;
+
+    public AudioSource soundEffectPlayer;
+    public AudioClip collisionSound;
+    public AudioClip ignitionSound;
+    public AudioClip doorSlamSound;
+
     // Start is called before the first frame update
     void Start()
     {
         text = textGameObject.GetComponent<TextMeshProUGUI>();
         bg = FindObjectsOfType<BackgroundMovement>();
         obstacles = FindObjectsOfType<ObstacleMovement>();
+        StartCoroutine(WaitBeforeDriving());
         speedIncrease /= 100;
     }
 
@@ -216,5 +223,15 @@ public class SpeedManager : MonoBehaviour
     public float GetSpeedPercentage()
     {
         return speed / maxSpeed;
+    }
+
+    IEnumerator WaitBeforeDriving()
+    {
+        yield return new WaitForSeconds(1);
+
+        soundEffectPlayer.PlayOneShot(doorSlamSound, 0.7F);
+        yield return new WaitForSeconds(1);
+
+        soundEffectPlayer.PlayOneShot(ignitionSound, 0.7F);
     }
 }

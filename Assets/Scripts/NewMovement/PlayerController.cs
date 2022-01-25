@@ -67,6 +67,7 @@ public class PlayerController : MonoBehaviour
         {
             soundEffectPlayer.clip = collisionSound;
             soundEffectPlayer.Play();
+            speedInstance.ReduceSpeed();
         }
         Destroy(collision.gameObject);
     }

@@ -18,7 +18,7 @@ public class SpeedManager : MonoBehaviour
     private ObstacleMovement[] obstacles;
     private float speed;
     private TextMeshProUGUI text;
-    private bool onGrass;
+    private bool onGrass = false;
     private TireParticles tireParticles;
 
     public AudioSource soundEffectPlayer;
@@ -162,7 +162,7 @@ public class SpeedManager : MonoBehaviour
         }
         else
         {
-            if (onGrass)
+            if (!onGrass)
             {
                 speed = maxSpeed;
                 for (int i = 0; i < 2; i++)
@@ -241,5 +241,11 @@ public class SpeedManager : MonoBehaviour
         yield return new WaitForSeconds(1);
 
         soundEffectPlayer.PlayOneShot(ignitionSound, 0.7F);
+    }
+
+    public void ReduceSpeed()
+    {
+        Debug.Log("ReduceSpeed called");
+        speed *= 0.3f;
     }
 }

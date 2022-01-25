@@ -18,7 +18,7 @@ public class SpeedManager : MonoBehaviour
     private ObstacleMovement[] obstacles;
     private float speed;
     private TextMeshProUGUI text;
-    private bool onGrass;
+    private bool onGrass = false;
     private TireParticles tireParticles;
 
     public AudioSource soundEffectPlayer;
@@ -162,7 +162,7 @@ public class SpeedManager : MonoBehaviour
         }
         else
         {
-            if (onGrass)
+            if (!onGrass)
             {
                 speed = maxSpeed;
                 for (int i = 0; i < 2; i++)

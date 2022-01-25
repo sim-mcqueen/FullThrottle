@@ -22,13 +22,13 @@ public class JerryCanSpawner : MonoBehaviour
         {
             Debug.Log("SpawnJerryCan");
             Instantiate(JerryCan, transform.position, Quaternion.identity);
-            if(SS.score > 10000)
+            if(SS.score > 2500)
             {
                 SpawnNextAt = (int)SS.score + 660;
             }
             else
             {
-                SpawnNextAt = (int)((SS.score * 0.52f + 140) + SS.score); 
+                SpawnNextAt = (int)((SS.score * 0.52f + 50) + SS.score); 
             }
         }
     }

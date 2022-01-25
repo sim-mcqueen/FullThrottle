@@ -24,7 +24,7 @@ public class ScoreScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        pointsPerSecond = 2 * (SM.GetSpeed() / 3.6f);
+        pointsPerSecond = (SM.GetSpeed() / 3.6f);
         score += (pointsPerSecond * Time.deltaTime);
         GetComponent<TextMeshProUGUI>().text = "METERS: " + (int)score;
     }

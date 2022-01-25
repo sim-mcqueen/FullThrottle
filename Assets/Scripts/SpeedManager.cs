@@ -19,6 +19,7 @@ public class SpeedManager : MonoBehaviour
     private float speed;
     private TextMeshProUGUI text;
     private bool onGrass;
+    private TireParticles tireParticles;
 
     public AudioSource soundEffectPlayer;
     public AudioClip collisionSound;
@@ -28,6 +29,7 @@ public class SpeedManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        tireParticles = player.transform.GetChild(0).gameObject.GetComponent<TireParticles>();
         text = textGameObject.GetComponent<TextMeshProUGUI>();
         bg = FindObjectsOfType<BackgroundMovement>();
         obstacles = FindObjectsOfType<ObstacleMovement>();
@@ -192,24 +194,30 @@ public class SpeedManager : MonoBehaviour
             if(!onGrass)
             {
                 Debug.Log("on grass");
+                tireParticles.UpdateTireColor(onGrass);
             }
             onGrass = true;
+            
         }
         else if(player.transform.position.x > grassBoundPos)
         {
             if (!onGrass)
             {
                 Debug.Log("on grass");
+                tireParticles.UpdateTireColor(onGrass);
             }
             onGrass = true;
+            
         }
         else
         {
             if (onGrass)
             {
                 Debug.Log("off grass");
+                tireParticles.UpdateTireColor(onGrass);
             }
             onGrass = false;
+            
         }
 
     }

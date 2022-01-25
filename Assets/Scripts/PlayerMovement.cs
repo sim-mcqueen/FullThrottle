@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
 
     public AudioSource soundEffectPlayer;
     public AudioClip collisionSound;
+    public AudioClip pickUpSound;
     //public AudioClip ignitionSound;
     //public AudioClip doorSlamSound;
 
@@ -64,16 +65,14 @@ public class PlayerMovement : MonoBehaviour
         if (collision.CompareTag("Gas"))
         {
             GasS.AddGas(100);
+            soundEffectPlayer.PlayOneShot(pickUpSound, 0.7F);
         }
         else
         {
-            soundEffectPlayer.clip = collisionSound;
-            soundEffectPlayer.Play();
+            soundEffectPlayer.PlayOneShot(collisionSound, 0.7F);
             SM.ReduceSpeed();
         }
         Destroy(collision.gameObject);
     }
-
-    
 
 }

@@ -17,7 +17,7 @@ public class TireParticles : MonoBehaviour
 
     public void UpdateTireColor(bool onGrass)
     {
-        if(!onGrass)
+        if(onGrass)
         {
             main.startColor = new ParticleSystem.MinMaxGradient(defaultColor1, grassColor);
         }

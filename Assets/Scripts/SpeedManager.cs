@@ -242,4 +242,10 @@ public class SpeedManager : MonoBehaviour
 
         soundEffectPlayer.PlayOneShot(ignitionSound, 0.7F);
     }
+
+    public void ReduceSpeed()
+    {
+        Debug.Log("ReduceSpeed called");
+        speed *= 0.3f;
+    }
 }

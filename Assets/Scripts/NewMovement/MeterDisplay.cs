@@ -20,6 +20,6 @@ public class MeterDisplay : MonoBehaviour
     {
         pointsPerSecond = kmph.GetKMPH() / 3.6f;
         score += (pointsPerSecond * Time.deltaTime);
-        GetComponent<TextMeshProUGUI>().text = "METERS: " + (int)(score * 10);
+        GetComponent<TextMeshProUGUI>().text = "METERS: " + (int)(score);
     }
 }

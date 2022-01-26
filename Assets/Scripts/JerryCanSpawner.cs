@@ -5,30 +5,30 @@ using UnityEngine;
 public class JerryCanSpawner : MonoBehaviour
 {
     private int SpawnNextAt;
-    private ScoreScript SS;
+    private MeterDisplay meterDisplay;
     public GameObject JerryCan;
 
     // Start is called before the first frame update
     void Start()
     {
         SpawnNextAt = 140;
-        SS = FindObjectOfType<ScoreScript>();
+        meterDisplay = FindObjectOfType<MeterDisplay>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(SS.score > SpawnNextAt)
+        if(meterDisplay.score > SpawnNextAt)
         {
             Debug.Log("SpawnJerryCan");
             Instantiate(JerryCan, transform.position, Quaternion.identity);
-            if(SS.score > 2500)
+            if(meterDisplay.score > 2500)
             {
-                SpawnNextAt = (int)SS.score + 660;
+                SpawnNextAt = (int)meterDisplay.score + 660;
             }
             else
             {
-                SpawnNextAt = (int)((SS.score * 0.52f + 50) + SS.score); 
+                SpawnNextAt = (int)((meterDisplay.score * 0.52f + 50) + meterDisplay.score); 
             }
         }
     }

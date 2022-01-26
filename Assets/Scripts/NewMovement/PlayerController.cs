@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     private float OrginalTurnSpeed;
     public Collider2D obstacleCollider;
     private Gas GasS;
+    [SerializeField]
+    private GameObject collisionPS;
 
     public AudioSource soundEffectPlayer;
     public AudioClip collisionSound;
@@ -65,6 +67,8 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            Vector2 collisionPoint = collision.ClosestPoint(transform.position);
+            Instantiate(collisionPS, new Vector3(collisionPoint.x, collisionPoint.y, -5), Quaternion.identity);
             soundEffectPlayer.clip = collisionSound;
             soundEffectPlayer.Play();
             speedInstance.ReduceSpeed();

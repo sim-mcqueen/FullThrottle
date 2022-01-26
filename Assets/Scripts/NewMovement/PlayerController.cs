@@ -68,14 +68,24 @@ public class PlayerController : MonoBehaviour
         else
         {
             Vector2 collisionPoint = collision.ClosestPoint(transform.position);
-            Instantiate(collisionPS, new Vector3(collisionPoint.x, collisionPoint.y, -5), Quaternion.identity);
+            Vector3 point = new Vector3(collisionPoint.x, collisionPoint.y, -5);
+            Vector3 dir = (point - transform.position).normalized;
+            Instantiate(collisionPS, point, Quaternion.identity);
+            StartCoroutine(Spin(collision, dir));
             soundEffectPlayer.clip = collisionSound;
             soundEffectPlayer.Play();
             speedInstance.ReduceSpeed();
         }
-        Destroy(collision.gameObject);
+        
+        
     }
 
-
-
+    IEnumerator Spin(Collider2D collision, Vector3 dir)
+    {
+        SpinOut spin = collision.GetComponent<SpinOut>();
+        collision.GetComponent<BoxCollider2D>().enabled = false;
+        spin.spin = true;
+        spin.dir = dir;
+        yield return new WaitForSeconds(3);
+    }
 }

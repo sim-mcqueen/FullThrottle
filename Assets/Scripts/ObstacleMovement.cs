@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ObstacleMovement : MonoBehaviour
 {
-    private SpeedManager speedManager;
+    private PlayerSpeed speedManager;
     public float speed;
     private Rigidbody2D obstacleRB;
 
@@ -12,7 +12,7 @@ public class ObstacleMovement : MonoBehaviour
     void Start()
     {
         obstacleRB = GetComponent<Rigidbody2D>();
-        speedManager = FindObjectOfType<SpeedManager>();
+        speedManager = FindObjectOfType<PlayerSpeed>();
         ChangeSpeed(speedManager.GetSpeed());
 
     }
@@ -26,7 +26,7 @@ public class ObstacleMovement : MonoBehaviour
     }
     public void ChangeSpeed(float newSpeed)
     {
-        newSpeed /= 5;
+        //newSpeed /= 5;
         obstacleRB.velocity = new Vector2(0, -newSpeed);
     }
 

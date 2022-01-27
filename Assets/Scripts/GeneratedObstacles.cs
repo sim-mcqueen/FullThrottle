@@ -34,7 +34,6 @@ public class GeneratedObstacles : MonoBehaviour
         }
         
         yield return new WaitForSeconds(waitTime / speed * 2.5f);
-        Debug.Log(waitTime / speed * 2.5f);
         GameObject obj = Instantiate(obstacle, new Vector3(maxRange, 9, 0), Quaternion.identity);
         Color color = colors[Random.Range(0, colors.Length)];
         obj.GetComponent<SpriteRenderer>().color = color;

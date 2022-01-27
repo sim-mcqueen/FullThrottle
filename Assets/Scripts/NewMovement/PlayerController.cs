@@ -69,7 +69,6 @@ public class PlayerController : MonoBehaviour
         {
             PS.Boost(10);
             soundEffectPlayer.PlayOneShot(pickUpSound, 2.0F);
-
             Destroy(collision);
         }
         else

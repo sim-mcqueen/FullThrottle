@@ -10,6 +10,7 @@ using UnityEngine;
 public class GeneratedObstacles : MonoBehaviour
 {
     public GameObject obstacle;
+    public Color[] colors;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +32,9 @@ public class GeneratedObstacles : MonoBehaviour
 
         yield return new WaitForSeconds(2);
 
-        Instantiate(obstacle, new Vector3(maxRange, 9, 0), Quaternion.identity);
+        GameObject obj = Instantiate(obstacle, new Vector3(maxRange, 9, 0), Quaternion.identity);
+        Color color = colors[Random.Range(0, colors.Length)];
+        obj.GetComponent<SpriteRenderer>().color = color;
 
         StartCoroutine(GenerateObstacle());
     }

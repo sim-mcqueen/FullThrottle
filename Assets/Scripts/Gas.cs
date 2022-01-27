@@ -15,13 +15,12 @@ public class Gas : MonoBehaviour
     public float min;
     public float current;
     public Image mask;
-
     void Start()
     {
         StartCoroutine(DecreaseGas(0.1f));
     }
 
-    void Update()
+    void FixedUpdate()
     {
         GetFill();
 
@@ -37,6 +36,7 @@ public class Gas : MonoBehaviour
         {
             current += amount;
         }
+
     }
     void GetFill()
     {

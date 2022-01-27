@@ -158,6 +158,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spin: 0
-  spinSpeed: 2
-  moveSpeed: 2
+  spinSpeed: 10
+  moveSpeed: 3
   dir: {x: 0, y: 0, z: 0}

@@ -13,8 +13,13 @@ public class SpinOut : MonoBehaviour
     {
         if(spin)
         {
+            dir.z = 0;
             transform.Rotate(0, 0, spinSpeed);
             transform.position = transform.position + (moveSpeed * dir);
         }
+    }
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
     }
 }

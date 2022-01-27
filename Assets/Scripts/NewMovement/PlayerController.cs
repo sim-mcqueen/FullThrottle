@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     private Gas GasS;
     [SerializeField]
     private GameObject collisionPS;
+    private PlayerSpeed PS;
 
     public AudioSource soundEffectPlayer;
     public AudioClip collisionSound;
@@ -31,6 +32,7 @@ public class PlayerController : MonoBehaviour
         speedInstance = FindObjectOfType<PlayerSpeed>();
         soundEffectPlayer = GetComponent<AudioSource>();
         GasS = FindObjectOfType<Gas>();
+        PS = FindObjectOfType<PlayerSpeed>();
 
         //StartCoroutine(WaitBeforeDriving());
 
@@ -64,6 +66,11 @@ public class PlayerController : MonoBehaviour
         if (collision.CompareTag("Gas"))
         {
             GasS.AddGas(100);
+        }
+        else if(collision.CompareTag("Boost"))
+        {
+            PS.Boost(20);
+            Destroy(collision);
         }
         else
         {

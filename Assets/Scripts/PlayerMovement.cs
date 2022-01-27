@@ -20,8 +20,7 @@ public class PlayerMovement : MonoBehaviour
     public AudioSource soundEffectPlayer;
     public AudioClip collisionSound;
     public AudioClip pickUpSound;
-    //public AudioClip ignitionSound;
-    //public AudioClip doorSlamSound;
+   
 
     private void Start()
     {
@@ -30,13 +29,11 @@ public class PlayerMovement : MonoBehaviour
         SM = FindObjectOfType<SpeedManager>();
         soundEffectPlayer = GetComponent<AudioSource>();
         GasS = FindObjectOfType<Gas>();
-
-        //StartCoroutine(WaitBeforeDriving());
-
     }
 
     void Update()
     {
+
         if (Input.GetKeyDown(KeyCode.A))
         {
             rb.velocity = new Vector2(-turnSpeed, 0);
@@ -57,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(turnSpeed, 0);
         }
         turnSpeed = OrginalTurnSpeed * SM.GetSpeedPercentage();
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

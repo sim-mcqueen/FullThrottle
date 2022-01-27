@@ -22,7 +22,6 @@ public class SpeedManager : MonoBehaviour
     private TireParticles tireParticles;
 
     public AudioSource soundEffectPlayer;
-    public AudioClip collisionSound;
     public AudioClip ignitionSound;
     public AudioClip doorSlamSound;
 
@@ -33,14 +32,19 @@ public class SpeedManager : MonoBehaviour
         text = textGameObject.GetComponent<TextMeshProUGUI>();
         bg = FindObjectsOfType<BackgroundMovement>();
         obstacles = FindObjectsOfType<ObstacleMovement>();
-        StartCoroutine(WaitBeforeDriving());
         speedIncrease /= 100;
+        StartCoroutine(WaitBeforeDriving());
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(speed < 10)
+        //if speed < 0
+        if (speed == 0) {
+            return;
+        }
+
+        if(speed > 0 && speed < 10)
         {
             if(onGrass)
             {
@@ -233,19 +237,22 @@ public class SpeedManager : MonoBehaviour
         return speed / maxSpeed;
     }
 
-    IEnumerator WaitBeforeDriving()
-    {
-        yield return new WaitForSeconds(1);
-
-        soundEffectPlayer.PlayOneShot(doorSlamSound, 0.7F);
-        yield return new WaitForSeconds(1);
-
-        soundEffectPlayer.PlayOneShot(ignitionSound, 0.7F);
-    }
-
     public void ReduceSpeed()
     {
         Debug.Log("ReduceSpeed called");
         speed *= 0.3f;
+    }
+
+    IEnumerator WaitBeforeDriving()
+    {
+        speed = 0;
+        soundEffectPlayer.PlayOneShot(doorSlamSound, 0.7F);
+        yield return new WaitForSeconds(1);
+        //soundEffectPlayer.PlayOneShot(ignitionSound, 0.7F);
+        soundEffectPlayer.clip = ignitionSound;
+        soundEffectPlayer.Play();
+        yield return new WaitForSeconds(ignitionSound.length);
+        speed = 1;
+
     }
 }

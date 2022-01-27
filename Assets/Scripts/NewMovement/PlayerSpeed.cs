@@ -6,7 +6,7 @@ public class PlayerSpeed : MonoBehaviour
 {
     private float speed;
     private float maxSpeed = 10f;
-    private float speedChange = 0.5f;
+    private float speedChange = 0.4f;
 
     private bool onGrass;
     private float grassBoundPos = 3.37f;
@@ -27,7 +27,7 @@ public class PlayerSpeed : MonoBehaviour
     {
         if(GrassCheck())
         {
-            if(speed > 10)
+            if(speed > 1)
             {
                 tireParticles.UpdateTireColor(true);
                 speed -= (speedChange * Time.deltaTime);

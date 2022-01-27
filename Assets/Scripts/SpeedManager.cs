@@ -39,7 +39,6 @@ public class SpeedManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if speed < 0
         if (speed == 0) {
             return;
         }

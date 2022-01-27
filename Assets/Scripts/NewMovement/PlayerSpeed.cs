@@ -27,7 +27,7 @@ public class PlayerSpeed : MonoBehaviour
     {
         if(GrassCheck())
         {
-            if(speed > 0)
+            if(speed > 10)
             {
                 tireParticles.UpdateTireColor(true);
                 speed -= (speedChange * Time.deltaTime);

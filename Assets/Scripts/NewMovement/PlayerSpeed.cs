@@ -81,4 +81,9 @@ public class PlayerSpeed : MonoBehaviour
         Debug.Log("ReduceSpeed called");
         speed *= 0.3f;
     }
+
+    public void Boost(int amount)
+    {
+        speed += amount / 10;
+    }
 }

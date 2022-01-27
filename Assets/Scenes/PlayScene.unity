@@ -261,6 +261,7 @@ GameObject:
   - component: {fileID: 350374166}
   - component: {fileID: 350374165}
   - component: {fileID: 350374164}
+  - component: {fileID: 350374170}
   m_Layer: 0
   m_Name: TestPlayer
   m_TagString: Player
@@ -496,6 +497,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &350374170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 350374163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 526fa1e08cd31f2418728d761f4052db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &412615854
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1090,9 +1103,9 @@ MonoBehaviour:
   obstacle: {fileID: 1420625127459748637, guid: e442054d77f05b841b3843b8985f2448,
     type: 3}
   colors:
-  - {r: 0.6886792, g: 0.4970185, b: 0.4970185, a: 1}
-  - {r: 0.6509434, g: 0.13203098, b: 0.13203098, a: 1}
-  - {r: 1, g: 0.7122642, b: 0.7122642, a: 1}
+  - {r: 0.522332, g: 0.8207547, b: 0.48393556, a: 1}
+  - {r: 0.28746888, g: 0.63210404, b: 0.7169812, a: 1}
+  - {r: 0.68709314, g: 0.495372, b: 0.8679245, a: 1}
 --- !u!4 &762465085
 Transform:
   m_ObjectHideFlags: 0
@@ -1545,7 +1558,7 @@ PrefabInstance:
     - target: {fileID: 5817592503192082979, guid: 0deba412e09f03a4eb450eaf9356f312,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 5817592503192082979, guid: 0deba412e09f03a4eb450eaf9356f312,
         type: 3}

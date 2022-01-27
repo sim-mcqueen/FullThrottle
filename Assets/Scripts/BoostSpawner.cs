@@ -23,7 +23,7 @@ public class BoostSpawner : MonoBehaviour
     {
         //left and right bounds of road
         float maxRange = Random.Range(-3, 3);
-        int timeInBetweenBoost = Random.Range(3, 9);
+        int timeInBetweenBoost = Random.Range(9, 15);
         yield return new WaitForSeconds(timeInBetweenBoost);
 
         Instantiate(boost, new Vector3(maxRange, 9, 0), Quaternion.identity);

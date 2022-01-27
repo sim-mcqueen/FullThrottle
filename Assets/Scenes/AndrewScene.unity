@@ -5685,7 +5685,7 @@ GameObject:
   - component: {fileID: 1183753531}
   m_Layer: 0
   m_Name: TestPlayer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6444,6 +6444,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstacle: {fileID: 1420625127459748637, guid: e442054d77f05b841b3843b8985f2448,
     type: 3}
+  colors:
+  - {r: 0.6886792, g: 0.4970185, b: 0.4970185, a: 1}
+  - {r: 0.6509434, g: 0.13203098, b: 0.13203098, a: 1}
+  - {r: 1, g: 0.7122642, b: 0.7122642, a: 1}
 --- !u!4 &1791068172
 Transform:
   m_ObjectHideFlags: 0

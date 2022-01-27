@@ -9,7 +9,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float turnSpeed = 4;
+    public float turnSpeed = 3;
     private float speed = 0;
     private Rigidbody2D rb;
     private PlayerSpeed speedInstance;

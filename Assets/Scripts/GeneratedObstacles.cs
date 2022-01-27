@@ -12,9 +12,12 @@ public class GeneratedObstacles : MonoBehaviour
     public GameObject obstacle;
     public Color[] colors;
 
+    private float waitTime = 2;
+
     // Start is called before the first frame update
     void Start()
     {
+
         StartCoroutine(GenerateObstacle());
 
     }
@@ -23,10 +26,15 @@ public class GeneratedObstacles : MonoBehaviour
     IEnumerator GenerateObstacle()
     {
         //left and right bounds of road
-        float maxRange = Random.Range(-3, 3);
-
-        yield return new WaitForSeconds(3);
-
+        float maxRange = Random.Range(-2.6f, 2.6f);
+        float speed = FindObjectOfType<PlayerSpeed>().GetSpeed();
+        if(speed <= 0)
+        {
+            speed = 1;
+        }
+        
+        yield return new WaitForSeconds(waitTime / speed * 2.5f);
+        Debug.Log(waitTime / speed * 2.5f);
         GameObject obj = Instantiate(obstacle, new Vector3(maxRange, 9, 0), Quaternion.identity);
         Color color = colors[Random.Range(0, colors.Length)];
         obj.GetComponent<SpriteRenderer>().color = color;

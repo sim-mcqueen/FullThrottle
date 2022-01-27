@@ -83,7 +83,7 @@ public class PlayerSpeed : MonoBehaviour
         speed *= 0.3f;
     }
 
-    public void Boost(int amount)
+    public void Boost(float amount)
     {
         speed += amount / 10;
     }

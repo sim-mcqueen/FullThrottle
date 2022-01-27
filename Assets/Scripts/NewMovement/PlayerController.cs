@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
         }
         else if(collision.CompareTag("Boost"))
         {
-            PS.Boost(5);
+            PS.Boost(10);
             soundEffectPlayer.PlayOneShot(pickUpSound, 2.0F);
 
             Destroy(collision);

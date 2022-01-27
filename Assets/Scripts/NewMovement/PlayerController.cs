@@ -22,8 +22,7 @@ public class PlayerController : MonoBehaviour
 
     public AudioSource soundEffectPlayer;
     public AudioClip collisionSound;
-    //public AudioClip ignitionSound;
-    //public AudioClip doorSlamSound;
+    public AudioClip pickUpSound;
 
     private void Start()
     {
@@ -66,10 +65,14 @@ public class PlayerController : MonoBehaviour
         if (collision.CompareTag("Gas"))
         {
             GasS.AddGas(100);
+            soundEffectPlayer.PlayOneShot(pickUpSound, 0.7F);
+
         }
         else if(collision.CompareTag("Boost"))
         {
             PS.Boost(20);
+            soundEffectPlayer.PlayOneShot(pickUpSound, 0.7F);
+
             Destroy(collision);
         }
         else
@@ -79,8 +82,9 @@ public class PlayerController : MonoBehaviour
             Vector3 dir = (point - transform.position).normalized;
             Instantiate(collisionPS, point, Quaternion.identity);
             StartCoroutine(Spin(collision, dir));
-            soundEffectPlayer.clip = collisionSound;
-            soundEffectPlayer.Play();
+            //soundEffectPlayer.clip = collisionSound;
+            //soundEffectPlayer.Play();
+            soundEffectPlayer.PlayOneShot(collisionSound, 0.7F);
             speedInstance.ReduceSpeed();
         }
         

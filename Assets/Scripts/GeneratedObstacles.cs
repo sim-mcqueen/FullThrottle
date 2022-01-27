@@ -19,11 +19,6 @@ public class GeneratedObstacles : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     IEnumerator GenerateObstacle()
     {

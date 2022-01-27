@@ -32,9 +32,6 @@ public class PlayerController : MonoBehaviour
         soundEffectPlayer = GetComponent<AudioSource>();
         GasS = FindObjectOfType<Gas>();
         PS = FindObjectOfType<PlayerSpeed>();
-
-        //StartCoroutine(WaitBeforeDriving());
-
     }
 
     void Update()
@@ -65,13 +62,13 @@ public class PlayerController : MonoBehaviour
         if (collision.CompareTag("Gas"))
         {
             GasS.AddGas(100);
-            soundEffectPlayer.PlayOneShot(pickUpSound, 0.7F);
+            soundEffectPlayer.PlayOneShot(pickUpSound, 2.0F);
 
         }
         else if(collision.CompareTag("Boost"))
         {
             PS.Boost(5);
-            soundEffectPlayer.PlayOneShot(pickUpSound, 0.7F);
+            soundEffectPlayer.PlayOneShot(pickUpSound, 2.0F);
 
             Destroy(collision);
         }
@@ -84,7 +81,7 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(Spin(collision, dir));
             //soundEffectPlayer.clip = collisionSound;
             //soundEffectPlayer.Play();
-            soundEffectPlayer.PlayOneShot(collisionSound, 0.7F);
+            soundEffectPlayer.PlayOneShot(collisionSound, 2.0F);
             speedInstance.ReduceSpeed();
         }
         

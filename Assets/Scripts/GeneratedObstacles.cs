@@ -30,7 +30,7 @@ public class GeneratedObstacles : MonoBehaviour
         //left and right bounds of road
         float maxRange = Random.Range(-3, 3);
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(3);
 
         GameObject obj = Instantiate(obstacle, new Vector3(maxRange, 9, 0), Quaternion.identity);
         Color color = colors[Random.Range(0, colors.Length)];

@@ -41,6 +41,10 @@ public class PlayerSpeed : MonoBehaviour
                 tireParticles.UpdateTireColor(false);
                 speed += (speedChange * Time.deltaTime);
             }
+            if(speed > maxSpeed)
+            {
+                speed -= (speedChange * Time.deltaTime);
+            }
 
         }
         

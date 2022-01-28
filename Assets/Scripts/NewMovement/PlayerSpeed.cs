@@ -21,12 +21,17 @@ public class PlayerSpeed : MonoBehaviour
     public AudioClip ignitionSound;
     public AudioClip doorSlamSound;
 
+    public AudioSource musicPlayer;
+    public AudioClip backgroundMusic;
+
+    //public AudioSource engineSoundPlayer;
+    //public AudioClip engineSound;
+
     private void Start()
     {
         tireParticles = player.transform.GetChild(0).gameObject.GetComponent<TireParticles>();
         speed = 0.2f;
         StartCoroutine(WaitBeforeDriving());
-
     }
 
     private void FixedUpdate()
@@ -110,7 +115,24 @@ public class PlayerSpeed : MonoBehaviour
         soundEffectPlayer.Play();
 
         yield return new WaitForSeconds(ignitionSound.length);
+        StartCoroutine(PlayAudio());
+
         speed = 1;
 
+    }
+
+    IEnumerator PlayAudio()
+    {
+        musicPlayer.volume = 0.35F;
+
+        musicPlayer.clip = backgroundMusic;
+        musicPlayer.Play();
+
+        /*
+        engineSoundPlayer.volume = 0.4F;
+        engineSoundPlayer.clip = engineSound;
+        engineSoundPlayer.Play();
+        */
+        yield return null;
     }
 }

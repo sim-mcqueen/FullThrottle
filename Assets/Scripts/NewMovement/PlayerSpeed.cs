@@ -24,9 +24,6 @@ public class PlayerSpeed : MonoBehaviour
     public AudioSource musicPlayer;
     public AudioClip backgroundMusic;
 
-    //public AudioSource engineSoundPlayer;
-    //public AudioClip engineSound;
-
     private void Start()
     {
         tireParticles = player.transform.GetChild(0).gameObject.GetComponent<TireParticles>();
@@ -127,12 +124,7 @@ public class PlayerSpeed : MonoBehaviour
 
         musicPlayer.clip = backgroundMusic;
         musicPlayer.Play();
-
-        /*
-        engineSoundPlayer.volume = 0.4F;
-        engineSoundPlayer.clip = engineSound;
-        engineSoundPlayer.Play();
-        */
+     
         yield return null;
     }
 }

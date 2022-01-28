@@ -120,7 +120,7 @@ public class PlayerSpeed : MonoBehaviour
 
     IEnumerator PlayAudio()
     {
-        musicPlayer.volume = 0.35F;
+        musicPlayer.volume = 0.22F;
 
         musicPlayer.clip = backgroundMusic;
         musicPlayer.Play();

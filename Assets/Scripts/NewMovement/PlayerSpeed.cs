@@ -26,8 +26,8 @@ public class PlayerSpeed : MonoBehaviour
 
     private void Start()
     {
+        player.transform.GetChild(0).gameObject.SetActive(false);
         tireParticles = player.transform.GetChild(0).gameObject.GetComponent<TireParticles>();
-        speed = 0.2f;
         StartCoroutine(WaitBeforeDriving());
     }
 
@@ -113,7 +113,7 @@ public class PlayerSpeed : MonoBehaviour
 
         yield return new WaitForSeconds(ignitionSound.length);
         StartCoroutine(PlayAudio());
-
+        player.transform.GetChild(0).gameObject.SetActive(true);
         speed = 1;
 
     }

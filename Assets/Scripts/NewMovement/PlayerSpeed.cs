@@ -105,10 +105,10 @@ public class PlayerSpeed : MonoBehaviour
     {
         speed = 0;
 
-        soundEffectPlayer.PlayOneShot(doorSlamSound, 2.3F);
+        soundEffectPlayer.PlayOneShot(doorSlamSound);
         yield return new WaitForSeconds(1);
         soundEffectPlayer.clip = ignitionSound;
-        soundEffectPlayer.volume = 2.3F;
+//        soundEffectPlayer.volume = 2.3F;
         soundEffectPlayer.Play();
 
         yield return new WaitForSeconds(ignitionSound.length);
@@ -120,7 +120,7 @@ public class PlayerSpeed : MonoBehaviour
 
     IEnumerator PlayAudio()
     {
-        musicPlayer.volume = 0.3F;
+        //musicPlayer.volume = 0.3F;
 
         musicPlayer.clip = backgroundMusic;
         musicPlayer.Play();

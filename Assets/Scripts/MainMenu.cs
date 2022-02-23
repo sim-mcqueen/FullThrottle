@@ -25,6 +25,8 @@ public class MainMenu : MonoBehaviour
         if(mainMenu.activeInHierarchy == true)
         {
             mainMenu.SetActive(false);
+            // initialize slider with the preference data
+            FindObjectOfType<Audio>().InitSlider();
             optionsMenu.SetActive(true);
         }
         else if(optionsMenu.activeInHierarchy == true)
